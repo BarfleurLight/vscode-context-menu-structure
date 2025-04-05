@@ -2,20 +2,34 @@
   "name": "vscode-context-menu-structure",
   "displayName": "vscode-context-menu-structure",
   "description": "Сustom organization of context menu items",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.98.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "vscode-context-menu-structure.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "python-envs.runAsTask",
+        "title": "%context-menu.runAsTask.title%",
+        "group": "1_myPython"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "python-envs.runAsTask",
+          "when": "editorLangId == python",
+          "group": "1_myPython"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
