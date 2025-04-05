@@ -16,6 +16,11 @@
   "contributes": {
     "commands": [
       {
+        "command": "context-menu.runInTerminal",
+        "title": "%context-menu.runInTerminal.title%",
+        "category": "1_myPython"
+      },
+      {
         "command": "python-envs.runAsTask",
         "title": "%context-menu.runAsTask.title%",
         "group": "1_myPython"
@@ -24,9 +29,14 @@
     "menus": {
       "editor/context": [
         {
+          "command": "context-menu.runInTerminal",
+          "when": "editorLangId == python",
+          "group": "1_myPython@0"
+        },
+        {
           "command": "python-envs.runAsTask",
           "when": "editorLangId == python",
-          "group": "1_myPython"
+          "group": "1_myPython@2"
         }
       ]
     }
