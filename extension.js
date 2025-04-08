@@ -9,10 +9,14 @@ function activate(context) {
 
     const runInTerminal = vscode.commands.registerCommand('context-menu.runInTerminal', function () {
         const filePath = vscode.window.activeTextEditor.document.fileName;
+
+        const pythonExtension = vscode.extensions.getExtension('ms-python.python').exports;
+        const venvPath = pythonExtension.settings.getExecutionDetails().execCommand[0]
+
         const terminal = vscode.window.activeTerminal ||
             vscode.window.createTerminal('Python Runner');
 
-        terminal.sendText(`python "${filePath}"`)
+        terminal.sendText(`"${venvPath}" "${filePath}"`)
     });
 
     const runTask = vscode.commands.registerCommand('context-menu.runTask', function () {
