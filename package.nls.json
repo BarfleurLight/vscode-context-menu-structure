@@ -1,1 +1,1 @@
-{"context-menu.runAsTask.title":"\u25B6 Task","python-run.runInTerminal.title":"\u25B6 Terminal"}
+{"context-menu.runTask.title":"\u25B6 Task","context-menu.runInTerminal.title":"\u25B6 Terminal","context-menu.runPytest.title":"\u25B6 Pytest"}
