@@ -21,8 +21,8 @@
         "category": "1_myPython"
       },
       {
-        "command": "python-envs.runAsTask",
-        "title": "%context-menu.runAsTask.title%",
+        "command": "context-menu.runTask",
+        "title": "%context-menu.runTask.title%",
         "group": "1_myPython"
       },
       {
@@ -39,7 +39,7 @@
           "group": "1_myPython@0"
         },
         {
-          "command": "python-envs.runAsTask",
+          "command": "context-menu.runTask",
           "when": "editorLangId == python",
           "group": "1_myPython@2"
         },
