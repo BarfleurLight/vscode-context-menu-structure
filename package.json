@@ -24,6 +24,11 @@
         "command": "python-envs.runAsTask",
         "title": "%context-menu.runAsTask.title%",
         "group": "1_myPython"
+      },
+      {
+        "command": "context-menu.runPytest",
+        "title": "%context-menu.runPytest.title%",
+        "category": "1_myPython"
       }
     ],
     "menus": {
@@ -37,6 +42,11 @@
           "command": "python-envs.runAsTask",
           "when": "editorLangId == python",
           "group": "1_myPython@2"
+        },
+        {
+          "command": "context-menu.runPytest",
+          "when": "editorLangId == python",
+          "group": "1_myPython@3"
         }
       ]
     }
