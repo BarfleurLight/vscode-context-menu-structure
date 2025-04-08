@@ -56,6 +56,45 @@ function activate(context) {
 
         vscode.tasks.executeTask(task);
     });
+
+    const runPytest = vscode.commands.registerCommand('context-menu.runPytest', function () {
+        const filePath = vscode.window.activeTextEditor.document.fileName;
+        const dirPath = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
+
+        const pythonExtension = vscode.extensions.getExtension('ms-python.python').exports;
+        const venvPath = pythonExtension.settings.getExecutionDetails().execCommand[0]
+
+
+        const taskDefinition = { type: "shell", label: "Run Python" };
+        const scope = vscode.TaskScope.Workspace;
+        const name = "Pytest";
+        const source = "Python Extension";
+        const execution = new vscode.ProcessExecution(
+            venvPath,
+            ["-m", "pytest", filePath],
+            { cwd: dirPath }
+        );
+        const problemMatchers = [];
+
+        const task = new vscode.Task(
+            taskDefinition,
+            scope,
+            name,
+            source,
+            execution,
+            problemMatchers
+        );
+
+        task.presentationOptions = {
+            reveal: vscode.TaskRevealKind.Always,
+            panel: vscode.TaskPanelKind.Dedicated,
+            focus: true,
+            clear: true,
+            showReuseMessage: false
+        };
+
+        vscode.tasks.executeTask(task);
+    });
     context.subscriptions.push(runInTerminal, runTask, runPytest);
 }
 
