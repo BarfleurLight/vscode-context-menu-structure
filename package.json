@@ -1,7 +1,7 @@
 {
-  "name": "vscode-context-menu-structure",
-  "displayName": "vscode-context-menu-structure",
-  "description": "Сustom organization of context menu items",
+  "name": "vscode-context-menu-py-run",
+  "displayName": "vscode-context-menu-py-run",
+  "description": "Run Python in context menu",
   "version": "0.1.1",
   "engines": {
     "vscode": "^1.98.0"
